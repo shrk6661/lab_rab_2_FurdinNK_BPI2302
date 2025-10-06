@@ -128,6 +128,11 @@
                             <ComboBoxItem Content="3"/>
                             <ComboBoxItem Content="4"/>
                             <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                            <ComboBoxItem Content="7"/>
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
                         </ComboBox>
                         <TextBlock Text="K = " VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <ComboBox x:Name="cmbK5" Width="60" Height="22" SelectedIndex="0" Margin="5,0">
@@ -136,9 +141,11 @@
                             <ComboBoxItem Content="3"/>
                             <ComboBoxItem Content="4"/>
                             <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                            <ComboBoxItem Content="7"/>
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
                             <ComboBoxItem Content="10"/>
-                            <ComboBoxItem Content="15"/>
-                            <ComboBoxItem Content="20"/>
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
