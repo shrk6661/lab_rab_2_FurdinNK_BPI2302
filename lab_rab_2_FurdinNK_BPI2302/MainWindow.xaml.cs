@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace lab_rab_2_FurdinNK_BPI2302
 {
@@ -34,9 +35,15 @@ namespace lab_rab_2_FurdinNK_BPI2302
                 txtResult.Text = $"Ошибка: {ex.Message}";
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+
+            e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"[0-9\.,]");
         }
 
-        // ---------- Формула 1 ----------
+
         private void CalculateFormula1()
         {
             double a = ParseNumber(txtA1.Text);
@@ -52,7 +59,7 @@ namespace lab_rab_2_FurdinNK_BPI2302
             this.Title = $"Окно программы — Формула 1 (f={f})";
         }
 
-        // ---------- Формула 2 ----------
+        
         private void CalculateFormula2()
         {
             double a = ParseNumber(txtA2.Text);
@@ -69,10 +76,10 @@ namespace lab_rab_2_FurdinNK_BPI2302
             this.Title = $"Окно программы — Формула 2 (f={f})";
         }
 
-        // ---------- Формула 3 ----------
+        
         private void CalculateFormula3()
         {
-            double a = ParseNumber(txtA3.Text);
+            double a = ParseNumber(txtA3.Text); //parse v double s obrabotkoy
             double b = ParseNumber(txtB3.Text);
             int c = int.Parse(((ComboBoxItem)cmbC3.SelectedItem).Content.ToString());
             int d = int.Parse(((ComboBoxItem)cmbD3.SelectedItem).Content.ToString());
@@ -84,10 +91,10 @@ namespace lab_rab_2_FurdinNK_BPI2302
             sb.AppendLine($"{c} * ({a:F2})² + {d} * ({b:F2})² = {result:F6}");
 
             txtResult.Text = sb.ToString();
-            this.Title = $"Окно программы — Формула 3 (результат = {result:F4})";
+            this.Title = $"Формула 3 (результат = {result:F4})";
         }
 
-        // ---------- Формула 4 ----------
+        
         private void CalculateFormula4()
         {
             double a = ParseNumber(txtA4.Text);
@@ -101,10 +108,10 @@ namespace lab_rab_2_FurdinNK_BPI2302
             sb.AppendLine($"({c} + {a:F2})^{d} = {result:F6}");
 
             txtResult.Text = sb.ToString();
-            this.Title = $"Окно программы — Формула 4 (результат = {result:F4})";
+            this.Title = $"Формула 4 (результат = {result:F4})";
         }
 
-        // ---------- Формула 5 ----------
+        
         private void CalculateFormula5()
         {
             double x = ParseNumber(txtX5.Text);
@@ -142,7 +149,7 @@ namespace lab_rab_2_FurdinNK_BPI2302
             this.Title = $"Окно программы — Формула 5 (Z = {sum:F4})";
         }
 
-        // ---------- Парсер ----------
+        
         private double ParseNumber(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
